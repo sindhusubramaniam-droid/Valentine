@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Will You Be My Valentine? 💖</title>
+
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #b30059;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        #yesBtn {
+            background-color: #ff4081;
+            color: white;
+            left: 40%;
+            top: 60%;
+        }
+
+        #noBtn {
+            background-color: #555;
+            color: white;
+            left: 55%;
+            top: 60%;
+        }
+
+        .love-text {
+            display: none;
+            font-size: 30px;
+            color: #800040;
+            margin-top: 30px;
+        }
+
+        .love-image {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .love-image img {
+            width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.7);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .love-image.show img {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Will You Be My Valentine? 💘</h1>
+
+    <!-- Buttons -->
+    <button id="yesBtn" onclick="yesClicked()">YES 💖</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 🙄</button>
+
+    <!-- Love Message -->
+    <div class="love-text" id="loveText">
+        Yayyyy!! 😍💍  
+        <br> I love you forever ❤️
+    </div>
+
+    <!-- Surprise Image -->
+    <div class="love-image" id="loveImage">
+        <img src="GhibliImage.jpg" alt="Surprise! 💖">
+    </div>
+
+    <script>
+        // Move NO button randomly
+        function moveNo() {
+            const noBtn = document.getElementById("noBtn");
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 150);
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+        // YES clicked - show message + fade-in image
+        function yesClicked() {
+            document.getElementById("loveText").style.display = "block";
+
+            const loveImg = document.getElementById("loveImage");
+            loveImg.style.display = "block";
+            loveImg.classList.add("show"); // triggers fade-in
+
+            document.getElementById("yesBtn").style.display = "none";
+            document.getElementById("noBtn").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
